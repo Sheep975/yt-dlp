@@ -3880,6 +3880,8 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         webpage, webpage_ytcfg, initial_data, is_premium_subscriber, player_responses, player_url = self._initial_extract(
             url, smuggled_data, webpage_url, webpage_client, video_id)
 
+        player_responses.reverse()
+
         playability_statuses = traverse_obj(
             player_responses, (..., 'playabilityStatus'), expected_type=dict)
 
